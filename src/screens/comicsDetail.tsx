@@ -2,7 +2,7 @@ import { Box, HStack, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { comicDetail } from "../api";
 import { useQuery } from "react-query";
-import { ComicDetailResponse } from "../types";
+import { ComicDetailResponse, ComicDetailResult } from "../types";
 
 export default function ComicsDetail() {
     const { comicId } = useParams();
@@ -10,7 +10,7 @@ export default function ComicsDetail() {
         ["comics", comicId],
         comicDetail
     );
-    console.log(data?.data.results);
+
     const COMIC_DATA = data?.data.results[0];
     const NO_DATA = "-";
     let writer = "";
@@ -51,7 +51,7 @@ export default function ComicsDetail() {
                         alignItems={"flex-start"}
                         color={"white"}
                     >
-                        <Image objectFit={"cover"} w={"40%"} src={photo} />
+                        <Image objectFit={"cover"} w={"30%"} src={photo} />
                         <VStack
                             marginLeft={40}
                             alignItems={"flex-start"}

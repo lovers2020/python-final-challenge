@@ -1,4 +1,5 @@
-import { Box, Button, Center, HStack } from "@chakra-ui/react";
+import { Box, Button, Center, HStack, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
@@ -46,6 +47,37 @@ export default function Header() {
                         </Button>
                     </Box>
                 </HStack>
+            </Center>
+            <Center
+                borderTop={"1px solid #393939"}
+                bgColor={"#202020"}
+                fontSize="12px"
+                fontWeight="600"
+            >
+                <Box
+                    _hover={{
+                        borderBottom: "5px solid red",
+                    }}
+                    borderBottom="5px solid #202020"
+                >
+                    <Link to="/">
+                        <Text mx={20} color="white">
+                            COMICS
+                        </Text>
+                    </Link>
+                </Box>
+                <Box
+                    _hover={{
+                        borderBottom: "5px solid red",
+                    }}
+                    borderBottom="5px solid #202020"
+                >
+                    <Link to="/characters">
+                        <Text mx={20} color="white">
+                            CHARACTERS
+                        </Text>
+                    </Link>
+                </Box>
             </Center>
         </>
     );

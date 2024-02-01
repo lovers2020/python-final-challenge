@@ -5,6 +5,7 @@ import NotFound from "./componenets/common/notfound";
 import Layout from "./componenets/common/layout";
 import Comics from "./screens/comics";
 import ComicsDetail from "./screens/comicsDetail";
+import Characters from "./screens/characters";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
             {
                 path: "",
                 element: <Comics />,
+            },
+            {
+                path: "characters",
+                element: <Characters />,
             },
             {
                 path: "comics/:comicId",

@@ -11,12 +11,33 @@ export default function Comics() {
     );
     return (
         <>
-            <Box maxW={"1280px"} margin={"auto"} px={20} mb={100} h={"100%"}>
-                <Box>
-                    <Text fontSize={"42px"} fontWeight={"600"}>
-                        Marvel Comics
-                    </Text>
-                </Box>
+            <Box
+                maxW={"1280px"}
+                margin={"auto"}
+                px={20}
+                mb={100}
+                position="relative"
+                h={"100%"}
+            >
+                <Text
+                    p={0}
+                    fontSize={"42px"}
+                    fontWeight={"600"}
+                    position="relative"
+                    bgColor={"white"}
+                    zIndex="99"
+                >
+                    Marvel Comics
+                </Text>
+
+                <Box
+                    position={"absolute"}
+                    top="27px"
+                    bgColor={"#c6a972"}
+                    w="130px"
+                    h="2px"
+                    transform="rotateZ(-45deg)"
+                ></Box>
                 <Grid
                     mt={10}
                     columnGap={20}
@@ -48,6 +69,8 @@ export default function Comics() {
                                         fontSize={"15px"}
                                         fontWeight={"600"}
                                         px={10}
+                                        mt={20}
+                                        mb={5}
                                     >
                                         {comics.title}
                                     </Text>
