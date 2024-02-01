@@ -1,24 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App";
 import { createGlobalStyle } from "styled-components";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const GlobalStyle = createGlobalStyle`
+
     body {
         margin: 0;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-}
+        -moz-osx-font-smoothing: grayscale; 
+        height: 100%;
+        a {
+            text-decoration: none;
+            color: black;
+        }
+         
+        box-sizing: border-box; 
+    }
 `;
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
 );
 root.render(
-    <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
         <GlobalStyle />
         <App />
-    </React.StrictMode>
+    </QueryClientProvider>
 );
