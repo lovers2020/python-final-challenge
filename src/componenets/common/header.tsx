@@ -53,6 +53,7 @@ export default function Header() {
                 bgColor={"#202020"}
                 fontSize="12px"
                 fontWeight="600"
+                gap={20}
             >
                 <Box
                     _hover={{
@@ -61,9 +62,7 @@ export default function Header() {
                     borderBottom="5px solid #202020"
                 >
                     <Link to="/">
-                        <Text mx={20} color="white">
-                            COMICS
-                        </Text>
+                        <Text color="white">COMICS</Text>
                     </Link>
                 </Box>
                 <Box
@@ -73,9 +72,7 @@ export default function Header() {
                     borderBottom="5px solid #202020"
                 >
                     <Link to="/characters">
-                        <Text mx={20} color="white">
-                            CHARACTERS
-                        </Text>
+                        <Text color="white">CHARACTERS</Text>
                     </Link>
                 </Box>
             </Center>

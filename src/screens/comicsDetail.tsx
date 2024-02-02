@@ -1,8 +1,36 @@
-import { Box, HStack, Heading, Image, Text, VStack } from "@chakra-ui/react";
+import {
+    Box,
+    HStack,
+    Heading,
+    Image,
+    Text,
+    VStack,
+    Button,
+    Center,
+    Spinner,
+} from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { comicDetail } from "../api";
 import { useQuery } from "react-query";
 import { ComicDetailResponse, ComicDetailResult } from "../types";
+import { Link } from "react-router-dom";
+import styled from "@emotion/styled";
+import { useEffect } from "react";
+
+export const ButtonBox = styled.div`
+    width: 150px;
+    height: 60px;
+    background-color: red;
+    background: linear-gradient(-45deg, transparent 15px, #e62429 0) right,
+        linear-gradient(135deg, transparent 15px, #e62429 0) left;
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    line-height: 3.5;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+`;
 
 export default function ComicsDetail() {
     const { comicId } = useParams();
@@ -30,6 +58,9 @@ export default function ComicsDetail() {
         photo = `${COMIC_DATA?.thumbnail.path}.${COMIC_DATA?.thumbnail.extension}`;
         title = COMIC_DATA?.title ? COMIC_DATA?.title : NO_DATA;
     }
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             {!isLoading ? (
@@ -39,7 +70,7 @@ export default function ComicsDetail() {
                         brightness={"10%"}
                         blur={"5px"}
                         w={"100%"}
-                        h={"90%"}
+                        h={"100%"}
                         src={photo}
                     />
                     <HStack
@@ -51,7 +82,31 @@ export default function ComicsDetail() {
                         alignItems={"flex-start"}
                         color={"white"}
                     >
-                        <Image objectFit={"cover"} w={"30%"} src={photo} />
+                        <VStack>
+                            <Image objectFit={"cover"} w={"100%"} src={photo} />
+
+                            <HStack
+                                mt={20}
+                                w={"100%"}
+                                justifyContent={"space-between"}
+                            >
+                                <Link to="/">
+                                    <ButtonBox>
+                                        <Text m={0} p={0}>
+                                            Go Back
+                                        </Text>
+                                    </ButtonBox>
+                                </Link>
+                                <Link to={`characters`}>
+                                    <ButtonBox>
+                                        <Text m={0} p={0}>
+                                            Character
+                                        </Text>
+                                    </ButtonBox>
+                                </Link>
+                            </HStack>
+                        </VStack>
+
                         <VStack
                             marginLeft={40}
                             alignItems={"flex-start"}
@@ -85,7 +140,22 @@ export default function ComicsDetail() {
                         </VStack>
                     </HStack>
                 </Box>
-            ) : null}
+            ) : (
+                <Center
+                    bgColor={"#202020"}
+                    w={"100%"}
+                    h={"100vh"}
+                    alignItems={"flex-start"}
+                >
+                    <Spinner
+                        color={"white"}
+                        w={"180px"}
+                        h={"180px"}
+                        thickness="4px"
+                        speed="0.65s"
+                    />
+                </Center>
+            )}
         </>
     );
 }

@@ -6,6 +6,8 @@ import Layout from "./componenets/common/layout";
 import Comics from "./screens/comics";
 import ComicsDetail from "./screens/comicsDetail";
 import Characters from "./screens/characters";
+import ListComicCharacters from "./screens/listComicCharacters";
+import CharacterDetail from "./screens/characterDetail";
 
 const router = createBrowserRouter([
     {
@@ -22,8 +24,16 @@ const router = createBrowserRouter([
                 element: <Characters />,
             },
             {
+                path: "characters/:characterId",
+                element: <CharacterDetail />,
+            },
+            {
                 path: "comics/:comicId",
                 element: <ComicsDetail />,
+            },
+            {
+                path: "comics/:comicId/characters",
+                element: <ListComicCharacters />,
             },
         ],
     },
