@@ -12,11 +12,9 @@ import { useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import { listComicCharacters } from "../api";
 import { ButtonBox } from "./comicsDetail";
-import { useState } from "react";
 
 export default function ListComicCharacters() {
     const navigate = useNavigate();
-    const [ishover, setIsHover] = useState(false);
 
     const { comicId } = useParams();
     const { data, isLoading } = useQuery(
@@ -25,11 +23,6 @@ export default function ListComicCharacters() {
     );
     const COMIC_DATA = data?.data.results;
     const noData = data?.data.total;
-    console.log(COMIC_DATA);
-    let photo = "";
-    let name = "";
-    if (!isLoading && !noData) {
-    }
     function onClickBack() {
         navigate(-1);
     }
@@ -86,20 +79,34 @@ export default function ListComicCharacters() {
                     position="relative"
                     h={"100%"}
                 >
-                    <Text
-                        p={0}
-                        fontSize={"42px"}
-                        fontWeight={"600"}
-                        position="relative"
-                        bgColor={"white"}
-                        zIndex="99"
-                    >
-                        CHARACTERS
-                    </Text>
+                    <HStack justify={"space-between"} gap={50}>
+                        <Text
+                            p={0}
+                            fontSize={"42px"}
+                            fontWeight={"600"}
+                            position="relative"
+                            bgColor={"white"}
+                            zIndex="99"
+                        >
+                            CHARACTERS
+                        </Text>
+                        <HStack>
+                            <ButtonBox onClick={onClickBack}>
+                                <Text fontSize={"18px"} m={0} p={0}>
+                                    Go Back
+                                </Text>
+                            </ButtonBox>
+                            <ButtonBox onClick={onClickHome}>
+                                <Text fontSize={"18px"} m={0} p={0}>
+                                    Go Home
+                                </Text>
+                            </ButtonBox>
+                        </HStack>
+                    </HStack>
 
                     <Box
                         position={"absolute"}
-                        top="27px"
+                        top="67px"
                         bgColor={"#c6a972"}
                         w="130px"
                         h="2px"
@@ -123,12 +130,12 @@ export default function ListComicCharacters() {
                             >
                                 <Box
                                     backgroundImage={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
-                                    w={"250px"}
+                                    w={"240px"}
                                     h={"70%"}
                                     backgroundSize={"cover"}
                                     mb={0}
                                     _groupHover={{
-                                        transform: "scale(1.1)",
+                                        transform: "scale(1.05)",
                                         transition: "all 0.3s",
                                     }}
                                 ></Box>
