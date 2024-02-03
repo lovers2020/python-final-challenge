@@ -21,8 +21,8 @@ export default function Comics() {
                 >
                     <Spinner
                         color={"red"}
-                        w={"180px"}
-                        h={"180px"}
+                        w={["100px", "180px"]}
+                        h={["100px", "180px"]}
                         thickness="4px"
                         speed="0.65s"
                     />
@@ -31,7 +31,7 @@ export default function Comics() {
                 <>
                     <MainBanner />
                     <Box
-                        maxW={"1280px"}
+                        maxW={["280px", "530px", "680px", "680px", "1280px"]}
                         margin={"auto"}
                         mb={100}
                         position="relative"
@@ -39,7 +39,7 @@ export default function Comics() {
                     >
                         <Text
                             mt={8}
-                            fontSize={"34px"}
+                            fontSize={["16px", "24px", "34px"]}
                             fontWeight={"600"}
                             position="relative"
                             bgColor={"white"}
@@ -50,9 +50,9 @@ export default function Comics() {
 
                         <Box
                             position={"absolute"}
-                            top="25px"
+                            top={["12px", "20px", "25px"]}
                             bgColor={"#c6a972"}
-                            w="120px"
+                            w={["60px", "100px", "120px"]}
                             h="2px"
                             transform="rotateZ(-45deg)"
                         ></Box>
@@ -60,14 +60,20 @@ export default function Comics() {
                             mt={10}
                             columnGap={4}
                             rowGap={10}
-                            templateColumns={"repeat(5,1fr)"}
+                            templateColumns={[
+                                "1,1fr",
+                                "repeat(2,1fr)",
+                                "repeat(3,1fr)",
+                                "repeat(3,1fr)",
+                                "repeat(5,1fr)",
+                            ]}
                         >
                             {data?.data.results.map((comics, index) => (
                                 <Link
                                     to={`comics/${comics.id}`}
                                     color="white"
                                     key={index}
-                                    style={{ height: "100%" }}
+                                    style={{ height: "100%", width: "100%" }}
                                 >
                                     <Box
                                         role="group"
@@ -85,12 +91,12 @@ export default function Comics() {
                                                 "0px 26px 24px -14px rgba(0,0,0,0.4)"
                                             }
                                             src={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
-                                            w={"250px"}
-                                            h={"400px"}
+                                            w={["250px"]}
+                                            h={["200px", "400px"]}
                                         ></Image>
                                         <Box>
                                             <Text
-                                                fontSize={"15px"}
+                                                fontSize={["12px", "15px"]}
                                                 fontWeight={"600"}
                                                 px={4}
                                                 mt={4}
@@ -99,7 +105,7 @@ export default function Comics() {
                                                 {comics.title}
                                             </Text>
                                             <Text
-                                                fontSize={"14px"}
+                                                fontSize={["10px", "14px"]}
                                                 px={4}
                                                 m={0}
                                             >

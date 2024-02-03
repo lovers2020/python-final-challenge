@@ -45,28 +45,31 @@ export default function CharacterDetail() {
                         blur={"5px"}
                         w={"100%"}
                         h={"100%"}
-                    ></Image>
-                    <Center
-                        maxW={"1280px"}
-                        w={"100%"}
+                    />
+                    <HStack
+                        flexDir={["column", "row"]}
+                        maxW={["280px", "680px", "680px", "1280px"]}
                         margin={"auto"}
                         position={"absolute"}
-                        top={"70px"}
-                        left={"350px"}
-                        justifyContent={"space-between"}
+                        top={"7%"}
+                        left={["17%", "10%", "15%", "15%", "20%"]}
+                        alignItems={"flex-start"}
+                        color={"white"}
                     >
-                        <VStack
-                            color={"white"}
-                            gap={0}
-                            alignItems={"flex-start"}
-                        >
-                            <Heading m={0} fontSize={"32px"}>
-                                {charData?.name}
-                            </Heading>
-                            <Text maxW={"70%"} my={20}>
-                                {charData?.description}
-                            </Text>
-                            <HStack gap={20} mt={10}>
+                        <VStack>
+                            <Image
+                                objectFit={"cover"}
+                                w={"100%"}
+                                src={`${charData?.thumbnail.path}.${charData?.thumbnail.extension}`}
+                            />
+
+                            <HStack
+                                mt={10}
+                                w={"100%"}
+                                justifyContent={"space-between"}
+                                position={["absolute", "relative"]}
+                                bottom={["-120px", "0"]}
+                            >
                                 <ButtonBox onClick={onClickBack}>
                                     <Text fontSize={"18px"} m={0} p={0}>
                                         Go Back
@@ -80,12 +83,24 @@ export default function CharacterDetail() {
                             </HStack>
                         </VStack>
 
-                        <Image
-                            src={`${charData?.thumbnail.path}.${charData?.thumbnail.extension}`}
-                            height={"500px"}
-                            width={"500px"}
-                        />
-                    </Center>
+                        <VStack
+                            marginLeft={[0, 10, 15, 15, 15, 40]}
+                            alignItems={"flex-start"}
+                            w={"100%"}
+                        >
+                            <Heading fontSize={["1rem", "1.75rem"]} margin={0}>
+                                {charData?.name}
+                            </Heading>
+
+                            <Box
+                                maxW={"100%"}
+                                mt={[0, 20]}
+                                fontSize={["10px", "1rem"]}
+                            >
+                                {charData?.description}
+                            </Box>
+                        </VStack>
+                    </HStack>
                 </Box>
             ) : (
                 <Center
@@ -96,8 +111,8 @@ export default function CharacterDetail() {
                 >
                     <Spinner
                         color={"white"}
-                        w={"180px"}
-                        h={"180px"}
+                        w={["100px", "180px"]}
+                        h={["100px", "180px"]}
                         thickness="4px"
                         speed="0.65s"
                     />

@@ -22,9 +22,7 @@ export default function Header() {
                             border={"none"}
                             cursor={"pointer"}
                             onClick={onSubmit}
-                            _hover={{
-                                bgColor: "none",
-                            }}
+                            variant={"unstyled"}
                             h={"100%"}
                         >
                             <svg
