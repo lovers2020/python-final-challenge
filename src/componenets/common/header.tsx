@@ -22,6 +22,10 @@ export default function Header() {
                             border={"none"}
                             cursor={"pointer"}
                             onClick={onSubmit}
+                            _hover={{
+                                bgColor: "none",
+                            }}
+                            h={"100%"}
                         >
                             <svg
                                 width="130"
@@ -57,9 +61,10 @@ export default function Header() {
             >
                 <Box
                     _hover={{
-                        borderBottom: "5px solid red",
+                        borderBottom: "4px solid red",
                     }}
-                    borderBottom="5px solid #202020"
+                    borderBottom="4px solid #202020"
+                    py={2}
                 >
                     <Link to="/">
                         <Text color="white">COMICS</Text>
@@ -67,9 +72,10 @@ export default function Header() {
                 </Box>
                 <Box
                     _hover={{
-                        borderBottom: "5px solid red",
+                        borderBottom: "4px solid red",
                     }}
-                    borderBottom="5px solid #202020"
+                    borderBottom="4px solid #202020"
+                    py={2}
                 >
                     <Link to="/characters">
                         <Text color="white">CHARACTERS</Text>

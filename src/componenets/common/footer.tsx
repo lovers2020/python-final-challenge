@@ -32,7 +32,7 @@ const footerDetailBottom = [
 export default function Footer() {
     return (
         <>
-            <Box bg={"#151515"} w="100%" py={70}>
+            <Box bg={"#151515"} w="100%" py={16}>
                 <HStack
                     w={"100%"}
                     maxW={"1280px"}
@@ -61,11 +61,12 @@ export default function Footer() {
                         fontWeight="600"
                         fontSize={"14px"}
                         alignItems="flex-start"
+                        gap={0}
                     >
                         {footerDetailFirst.map((index) => (
                             <Text
                                 key={uuid()}
-                                my={3}
+                                my={2}
                                 p={0}
                                 cursor={"pointer"}
                                 _hover={{
@@ -81,11 +82,12 @@ export default function Footer() {
                         fontWeight="500"
                         fontSize={"14px"}
                         alignItems="flex-start"
+                        gap={0}
                     >
                         {footerDetailSecond.map((index) => (
                             <Text
                                 key={uuid()}
-                                my={3}
+                                my={2}
                                 p={0}
                                 cursor={"pointer"}
                                 _hover={{
@@ -102,7 +104,7 @@ export default function Footer() {
                                 w={"60px"}
                                 src="https://cdn.marvel.com/content/1x/marvel_insider-topnav-logo-large2x.png"
                             />
-                            <VStack alignItems={"flex-start"} mx={20} gap="0">
+                            <VStack alignItems={"flex-start"} mx={4} gap="0">
                                 <Heading color={"white"} fontSize="16px" m={0}>
                                     MARVEL INSIDER
                                 </Heading>
@@ -121,7 +123,7 @@ export default function Footer() {
                                 w={"55px"}
                                 src="https://cdn.marvel.com/content/1x/mu-logo-w-nav-2x-2021-02.png"
                             />
-                            <VStack alignItems={"flex-start"} mx={20} gap="0">
+                            <VStack alignItems={"flex-start"} mx={4} gap="0">
                                 <Heading color={"white"} fontSize="16px" m={0}>
                                     MARVEL UNLIMITED
                                 </Heading>
@@ -137,7 +139,7 @@ export default function Footer() {
                         </HStack>
                     </VStack>
                 </HStack>
-                <Center mt={40} color="rgba(255,255,255,0.5)" fontSize={"13px"}>
+                <Center mt={20} color="rgba(255,255,255,0.5)" fontSize={"13px"}>
                     {footerDetailBottom.map((index) => (
                         <Text
                             key={uuid()}

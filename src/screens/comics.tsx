@@ -33,14 +33,13 @@ export default function Comics() {
                     <Box
                         maxW={"1280px"}
                         margin={"auto"}
-                        px={20}
                         mb={100}
                         position="relative"
                         h={"100%"}
                     >
                         <Text
-                            p={0}
-                            fontSize={"42px"}
+                            mt={8}
+                            fontSize={"34px"}
                             fontWeight={"600"}
                             position="relative"
                             bgColor={"white"}
@@ -51,16 +50,16 @@ export default function Comics() {
 
                         <Box
                             position={"absolute"}
-                            top="27px"
+                            top="25px"
                             bgColor={"#c6a972"}
-                            w="130px"
+                            w="120px"
                             h="2px"
                             transform="rotateZ(-45deg)"
                         ></Box>
                         <Grid
                             mt={10}
-                            columnGap={20}
-                            rowGap={130}
+                            columnGap={4}
+                            rowGap={10}
                             templateColumns={"repeat(5,1fr)"}
                         >
                             {data?.data.results.map((comics, index) => (
@@ -68,11 +67,13 @@ export default function Comics() {
                                     to={`comics/${comics.id}`}
                                     color="white"
                                     key={index}
+                                    style={{ height: "100%" }}
                                 >
                                     <Box
                                         role="group"
                                         cursor={"pointer"}
                                         _hover={{ color: "red" }}
+                                        h={"100%"}
                                     >
                                         <Image
                                             _groupHover={{
@@ -91,15 +92,15 @@ export default function Comics() {
                                             <Text
                                                 fontSize={"15px"}
                                                 fontWeight={"600"}
-                                                px={10}
-                                                mt={20}
-                                                mb={5}
+                                                px={4}
+                                                mt={4}
+                                                mb={1}
                                             >
                                                 {comics.title}
                                             </Text>
                                             <Text
                                                 fontSize={"14px"}
-                                                px={10}
+                                                px={4}
                                                 m={0}
                                             >
                                                 {comics.creators.items[0]?.name}

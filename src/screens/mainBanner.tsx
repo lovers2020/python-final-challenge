@@ -1,4 +1,4 @@
-import { Box, Center, Heading, Image, Text, VStack } from "@chakra-ui/react";
+import { Center, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 
 const ButtonBox = styled.div`
@@ -27,24 +27,29 @@ export default function MainBanner() {
             <Center position={"relative"}>
                 <Image
                     w={"100%"}
-                    h={"500px"}
+                    h={["300px", "400px", "500px"]}
                     objectFit={"cover"}
                     filter={"auto"}
                     brightness={"40%"}
                     src="https://cdn.marvel.com/u/prod/marvel/i/mg/b/d0/65b2b4bc56bd1.jpg"
                 />
                 <VStack
-                    gap={0}
+                    px={10}
+                    gap={4}
                     position={"absolute"}
-                    top={"80px"}
-                    left={"400px"}
+                    top={"90px"}
+                    left={["20px", "80px", "120px", "180px", "300px", "400px"]}
                     color={"white"}
                     align={"flex-start"}
                 >
                     <Heading fontSize={"16px"} m={0}>
                         'IMMORTAL THOR'
                     </Heading>
-                    <Text fontWeight={"600"} fontSize={"32px"}>
+                    <Text
+                        fontWeight={"600"}
+                        fontSize={["12px", "16px", "26px", "32px"]}
+                        mb={4}
+                    >
                         THE ROXXON AGE OF MARVEL COMICS BEGINS
                     </Text>
                     <a
