@@ -21,8 +21,8 @@ export default function Comics() {
                 >
                     <Spinner
                         color={"red"}
-                        w={"180px"}
-                        h={"180px"}
+                        w={["100px", "180px"]}
+                        h={["100px", "180px"]}
                         thickness="4px"
                         speed="0.65s"
                     />
@@ -31,16 +31,15 @@ export default function Comics() {
                 <>
                     <MainBanner />
                     <Box
-                        maxW={"1280px"}
+                        maxW={["280px", "530px", "680px", "680px", "1280px"]}
                         margin={"auto"}
-                        px={20}
                         mb={100}
                         position="relative"
                         h={"100%"}
                     >
                         <Text
-                            p={0}
-                            fontSize={"42px"}
+                            mt={8}
+                            fontSize={["16px", "24px", "34px"]}
                             fontWeight={"600"}
                             position="relative"
                             bgColor={"white"}
@@ -51,28 +50,36 @@ export default function Comics() {
 
                         <Box
                             position={"absolute"}
-                            top="27px"
+                            top={["12px", "20px", "25px"]}
                             bgColor={"#c6a972"}
-                            w="130px"
+                            w={["60px", "100px", "120px"]}
                             h="2px"
                             transform="rotateZ(-45deg)"
                         ></Box>
                         <Grid
                             mt={10}
-                            columnGap={20}
-                            rowGap={130}
-                            templateColumns={"repeat(5,1fr)"}
+                            columnGap={4}
+                            rowGap={10}
+                            templateColumns={[
+                                "1,1fr",
+                                "repeat(2,1fr)",
+                                "repeat(3,1fr)",
+                                "repeat(3,1fr)",
+                                "repeat(5,1fr)",
+                            ]}
                         >
                             {data?.data.results.map((comics, index) => (
                                 <Link
                                     to={`comics/${comics.id}`}
                                     color="white"
                                     key={index}
+                                    style={{ height: "100%", width: "100%" }}
                                 >
                                     <Box
                                         role="group"
                                         cursor={"pointer"}
                                         _hover={{ color: "red" }}
+                                        h={"100%"}
                                     >
                                         <Image
                                             _groupHover={{
@@ -84,22 +91,22 @@ export default function Comics() {
                                                 "0px 26px 24px -14px rgba(0,0,0,0.4)"
                                             }
                                             src={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
-                                            w={"250px"}
-                                            h={"400px"}
+                                            w={["250px"]}
+                                            h={["200px", "400px"]}
                                         ></Image>
                                         <Box>
                                             <Text
-                                                fontSize={"15px"}
+                                                fontSize={["12px", "15px"]}
                                                 fontWeight={"600"}
-                                                px={10}
-                                                mt={20}
-                                                mb={5}
+                                                px={4}
+                                                mt={4}
+                                                mb={1}
                                             >
                                                 {comics.title}
                                             </Text>
                                             <Text
-                                                fontSize={"14px"}
-                                                px={10}
+                                                fontSize={["10px", "14px"]}
+                                                px={4}
                                                 m={0}
                                             >
                                                 {comics.creators.items[0]?.name}

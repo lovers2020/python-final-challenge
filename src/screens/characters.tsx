@@ -36,10 +36,10 @@ export default function Characters() {
                     alignItems={"flex-start"}
                 >
                     <Spinner
-                        mt={20}
+                        mt={[10, 20]}
                         color={"red"}
-                        w={"180px"}
-                        h={"180px"}
+                        w={["100px", "180px"]}
+                        h={["100px", "180px"]}
                         thickness="4px"
                         speed="0.65s"
                     />
@@ -53,7 +53,7 @@ export default function Characters() {
                     color={"white"}
                     fontSize={"32px"}
                 >
-                    <Heading>No characters..</Heading>
+                    <Heading my={10}>No characters..</Heading>
                     <HStack gap={50}>
                         <ButtonBox onClick={onClickBack}>
                             <Text fontSize={"18px"} m={0} p={0}>
@@ -76,10 +76,14 @@ export default function Characters() {
                     position="relative"
                     h={"100%"}
                 >
-                    <HStack justify={"space-between"} gap={50}>
+                    <HStack
+                        justify={"space-between"}
+                        gap={50}
+                        flexDirection={["column", "column", "row"]}
+                    >
                         <Text
-                            p={0}
-                            fontSize={"42px"}
+                            mt={8}
+                            fontSize={["16px", "24px", "34px"]}
                             fontWeight={"600"}
                             position="relative"
                             bgColor={"white"}
@@ -87,7 +91,8 @@ export default function Characters() {
                         >
                             CHARACTERS
                         </Text>
-                        <HStack>
+
+                        <HStack position={"relative"}>
                             <ButtonBox onClick={onClickBack}>
                                 <Text fontSize={"18px"} m={0} p={0}>
                                     Go Back
@@ -99,21 +104,28 @@ export default function Characters() {
                                 </Text>
                             </ButtonBox>
                         </HStack>
+
+                        <Box
+                            position={"absolute"}
+                            top={["43px", "50px", "58px"]}
+                            bgColor={"#c6a972"}
+                            w={["60px", "100px", "120px"]}
+                            h="2px"
+                            transform="rotateZ(-45deg)"
+                        ></Box>
                     </HStack>
 
-                    <Box
-                        position={"absolute"}
-                        top="67px"
-                        bgColor={"#c6a972"}
-                        w="130px"
-                        h="2px"
-                        transform="rotateZ(-45deg)"
-                    ></Box>
                     <Grid
                         mt={10}
-                        columnGap={20}
-                        rowGap={130}
-                        templateColumns={"repeat(5,1fr)"}
+                        columnGap={4}
+                        rowGap={10}
+                        templateColumns={[
+                            "1,1fr",
+                            "repeat(2,1fr)",
+                            "repeat(3,1fr)",
+                            "repeat(3,1fr)",
+                            "repeat(5,1fr)",
+                        ]}
                     >
                         {COMIC_DATA?.map((comics, index) => (
                             <Box
@@ -121,13 +133,14 @@ export default function Characters() {
                                 role="group"
                                 overflow={"hidden"}
                                 h={"400px"}
+                                w={"100%"}
                                 onClick={() =>
                                     navigate(`/characters/${comics.id}`)
                                 }
                             >
                                 <Box
                                     backgroundImage={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
-                                    w={"240px"}
+                                    w={"100%"}
                                     h={"70%"}
                                     backgroundSize={"cover"}
                                     mb={0}
@@ -137,7 +150,7 @@ export default function Characters() {
                                     }}
                                 ></Box>
                                 <Box
-                                    p={20}
+                                    p={2}
                                     mt={0}
                                     h={"35%"}
                                     bgColor={"#151515"}

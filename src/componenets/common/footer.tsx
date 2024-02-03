@@ -32,14 +32,14 @@ const footerDetailBottom = [
 export default function Footer() {
     return (
         <>
-            <Box bg={"#151515"} w="100%" py={70}>
+            <Box bg={"#151515"} w="100%" py={[12, 16]}>
                 <HStack
                     w={"100%"}
-                    maxW={"1280px"}
+                    maxW={["280px", "1280px"]}
                     m={"0 auto"}
                     justifyContent="space-between"
                 >
-                    <Box w={"80px"}>
+                    <Box w={["50px", "80px"]}>
                         <svg
                             viewBox="0 0 36 52"
                             xmlns="http://www.w3.org/2000/svg"
@@ -59,13 +59,14 @@ export default function Footer() {
                     <VStack
                         color={"white"}
                         fontWeight="600"
-                        fontSize={"14px"}
+                        fontSize={["8px", "14px"]}
                         alignItems="flex-start"
+                        gap={0}
                     >
                         {footerDetailFirst.map((index) => (
                             <Text
                                 key={uuid()}
-                                my={3}
+                                my={[1, 2]}
                                 p={0}
                                 cursor={"pointer"}
                                 _hover={{
@@ -79,13 +80,14 @@ export default function Footer() {
                     <VStack
                         color={"white"}
                         fontWeight="500"
-                        fontSize={"14px"}
+                        fontSize={["8px", "14px"]}
                         alignItems="flex-start"
+                        gap={0}
                     >
                         {footerDetailSecond.map((index) => (
                             <Text
                                 key={uuid()}
-                                my={3}
+                                my={[1, 2]}
                                 p={0}
                                 cursor={"pointer"}
                                 _hover={{
@@ -99,15 +101,19 @@ export default function Footer() {
                     <VStack>
                         <HStack cursor={"pointer"} alignItems="flex-start">
                             <Image
-                                w={"60px"}
+                                w={["30px", "60px"]}
                                 src="https://cdn.marvel.com/content/1x/marvel_insider-topnav-logo-large2x.png"
                             />
-                            <VStack alignItems={"flex-start"} mx={20} gap="0">
-                                <Heading color={"white"} fontSize="16px" m={0}>
+                            <VStack alignItems={"flex-start"} mx={4} gap="0">
+                                <Heading
+                                    color={"white"}
+                                    fontSize={["8px", "16px"]}
+                                    m={0}
+                                >
                                     MARVEL INSIDER
                                 </Heading>
                                 <Text
-                                    fontSize={"12px"}
+                                    fontSize={["6px", "12px"]}
                                     p={0}
                                     m={0}
                                     color="rgba(255,255,255,0.5)"
@@ -118,15 +124,19 @@ export default function Footer() {
                         </HStack>
                         <HStack cursor={"pointer"} alignItems="flex-start">
                             <Image
-                                w={"55px"}
+                                w={["30px", "55px"]}
                                 src="https://cdn.marvel.com/content/1x/mu-logo-w-nav-2x-2021-02.png"
                             />
-                            <VStack alignItems={"flex-start"} mx={20} gap="0">
-                                <Heading color={"white"} fontSize="16px" m={0}>
+                            <VStack alignItems={"flex-start"} mx={4} gap="0">
+                                <Heading
+                                    color={"white"}
+                                    fontSize={["8px", "16px"]}
+                                    m={0}
+                                >
                                     MARVEL UNLIMITED
                                 </Heading>
                                 <Text
-                                    fontSize={"12px"}
+                                    fontSize={["6px", "12px"]}
                                     p={0}
                                     m={0}
                                     color="rgba(255,255,255,0.5)"
@@ -137,7 +147,11 @@ export default function Footer() {
                         </HStack>
                     </VStack>
                 </HStack>
-                <Center mt={40} color="rgba(255,255,255,0.5)" fontSize={"13px"}>
+                <Center
+                    mt={[4, 20]}
+                    color="rgba(255,255,255,0.5)"
+                    fontSize={["7px", "13px"]}
+                >
                     {footerDetailBottom.map((index) => (
                         <Text
                             key={uuid()}

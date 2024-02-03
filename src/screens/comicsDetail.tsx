@@ -74,11 +74,12 @@ export default function ComicsDetail() {
                         src={photo}
                     />
                     <HStack
-                        maxW={"1280px"}
+                        flexDir={["column", "row"]}
+                        maxW={["280px", "680px", "680px", "1280px"]}
                         margin={"auto"}
                         position={"absolute"}
                         top={"7%"}
-                        left={"20%"}
+                        left={["17%", "10%", "15%", "15%", "20%"]}
                         alignItems={"flex-start"}
                         color={"white"}
                     >
@@ -89,6 +90,8 @@ export default function ComicsDetail() {
                                 mt={20}
                                 w={"100%"}
                                 justifyContent={"space-between"}
+                                position={["absolute", "relative"]}
+                                bottom={["-120px"]}
                             >
                                 <Link to="/">
                                     <ButtonBox>
@@ -108,33 +111,53 @@ export default function ComicsDetail() {
                         </VStack>
 
                         <VStack
-                            marginLeft={40}
+                            marginLeft={[0, 10, 15, 15, 15, 40]}
                             alignItems={"flex-start"}
                             w={"100%"}
                         >
-                            <Heading fontSize={"1.75rem"} margin={0}>
+                            <Heading fontSize={["1rem", "1.75rem"]} margin={0}>
                                 {title}
                             </Heading>
 
                             <HStack justify={"space-between"} w={"100%"}>
                                 <VStack alignItems={"flex-start"}>
-                                    <Heading marginTop={20} mb={0}>
+                                    <Heading
+                                        marginTop={[0, 20]}
+                                        mb={0}
+                                        fontSize={["0.8rem", "2rem"]}
+                                    >
                                         Writer:
                                     </Heading>
-                                    <Text margin={0} fontWeight={"500"}>
+                                    <Text
+                                        margin={0}
+                                        fontWeight={"500"}
+                                        fontSize={["0.8rem", "inherit"]}
+                                    >
                                         {writer}
                                     </Text>
                                 </VStack>
                                 <VStack alignItems={"flex-start"}>
-                                    <Heading marginTop={20} mb={0}>
+                                    <Heading
+                                        marginTop={[0, 20]}
+                                        mb={0}
+                                        fontSize={["0.8rem", "2rem"]}
+                                    >
                                         Cover Artist:
                                     </Heading>
-                                    <Text margin={0} fontWeight={"500"}>
+                                    <Text
+                                        margin={0}
+                                        fontWeight={"500"}
+                                        fontSize={["0.8rem", "inherit"]}
+                                    >
                                         {coverArtist}
                                     </Text>
                                 </VStack>
                             </HStack>
-                            <Box maxW={"70%"} mt={20}>
+                            <Box
+                                maxW={"100%"}
+                                mt={[0, 20]}
+                                fontSize={["10px", "1rem"]}
+                            >
                                 {description ? description : "-"}
                             </Box>
                         </VStack>
@@ -149,8 +172,8 @@ export default function ComicsDetail() {
                 >
                     <Spinner
                         color={"white"}
-                        w={"180px"}
-                        h={"180px"}
+                        w={["100px", "180px"]}
+                        h={["100px", "180px"]}
                         thickness="4px"
                         speed="0.65s"
                     />
